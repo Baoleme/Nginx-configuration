@@ -18,7 +18,7 @@ git pull
 echo ---------------------------------------------
 echo              kill old container
 echo ---------------------------------------------
-docker kill baoleme-nginx || true
+docker rm -f baoleme-nginx || true
 echo ---------------------------------------------
 echo              start new container
 echo ---------------------------------------------
