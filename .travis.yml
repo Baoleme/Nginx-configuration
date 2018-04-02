@@ -6,6 +6,11 @@ addons:
     packages:
     - nginx
 
+before_script:
+- mkdir certificate
+- touch certificate/1_api.baoleme.andiedie.cn_bundle.crt
+- touch certificate/2_api.baoleme.andiedie.cn.key
+
 script: sudo nginx -t -c nginx.conf -p .
 
 before_deploy:
@@ -20,4 +25,4 @@ deploy:
   script: bash deploy.sh
   skip_cleanup: true
   on:
-    branch: master
+    branch: test
