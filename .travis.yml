@@ -1,6 +1,5 @@
 language: generic
 sudo: required
-
 addons:
   apt:
     packages:
@@ -8,17 +7,14 @@ addons:
 
 before_script:
 - openssl aes-256-cbc -K $encrypted_06736a13cd4c_key -iv $encrypted_06736a13cd4c_iv
-  -in certificate/2_api.baoleme.andiedie.cn.key.enc
-  -out certificate/2_api.baoleme.andiedie.cn.key -d
+  -in 2_api.baoleme.andiedie.cn.key.enc -out certificate/2_api.baoleme.andiedie.cn.key
+  -d
 
 script: sudo nginx -t -c nginx.conf -p .
 
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_06736a13cd4c_key -iv $encrypted_06736a13cd4c_iv
   -in deploy_rsa.enc -out deploy_rsa -d
-- eval "$(ssh-agent -s)"
-- chmod 600 deploy_rsa
-- ssh-add deploy_rsa
 
 deploy:
   provider: script
@@ -26,3 +22,4 @@ deploy:
   skip_cleanup: true
   on:
     branch: test
+
