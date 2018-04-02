@@ -7,14 +7,14 @@ addons:
     - nginx
 
 before_script:
-- mkdir certificate
-- touch certificate/1_api.baoleme.andiedie.cn_bundle.crt
-- touch certificate/2_api.baoleme.andiedie.cn.key
+- openssl aes-256-cbc -K $encrypted_06736a13cd4c_key -iv $encrypted_06736a13cd4c_iv
+  -in certificate/2_api.baoleme.andiedie.cn.key.enc
+  -out certificate/2_api.baoleme.andiedie.cn.key -d
 
 script: sudo nginx -t -c nginx.conf -p .
 
 before_deploy:
-- openssl aes-256-cbc -K $encrypted_57510f08f3ae_key -iv $encrypted_57510f08f3ae_iv
+- openssl aes-256-cbc -K $encrypted_06736a13cd4c_key -iv $encrypted_06736a13cd4c_iv
   -in deploy_rsa.enc -out deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 deploy_rsa
