@@ -22,7 +22,7 @@ docker rm -f baoleme-nginx || true
 echo ---------------------------------------------
 echo              start new container
 echo ---------------------------------------------
-docker run -d --name baoleme-nginx --rm -v /root/baoleme-nginx:/baoleme-nginx --network host nginx:alpine nginx -c /baoleme-nginx/nginx.conf -g "daemon off;"
+docker run -d --name baoleme-nginx --rm -v /root/baoleme-nginx:/baoleme-nginx -v /root/baoleme-server:/root/baoleme-server --network host nginx:alpine nginx -c /baoleme-nginx/nginx.conf -g "daemon off;"
 
 eeooff
 echo ---------------------------------------------
