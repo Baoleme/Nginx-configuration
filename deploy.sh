@@ -6,7 +6,7 @@ echo ---------------------------------------------
 echo                login Server
 echo ---------------------------------------------
 ssh -i deploy_rsa root@119.29.252.110 << eeooff
-cd /root/baoleme-nginx
+cd /root/baoleme/nginx/baoleme
 echo ---------------------------------------------
 echo                git pull
 echo ---------------------------------------------
