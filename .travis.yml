@@ -1,9 +1,9 @@
 language: generic
 sudo: required
 addons:
-  apt:
-    packages:
-    - nginx
+  # apt:
+  #   packages:
+  #   - nginx
   ssh_known_hosts: 119.29.252.110
 
 before_script:
@@ -14,7 +14,7 @@ before_script:
 - chmod 600 deploy_rsa
 - ssh-add deploy_rsa
 
-script: sudo nginx -t -c nginx.conf -p .
+# script: sudo nginx -t -c nginx.conf -p .
 
 deploy:
   provider: script
