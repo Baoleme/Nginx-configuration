@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  api:
+    image: node:alpine
+    networks:
+    - network
+    volumes:
+    - D:/Andie/code/Baoleme/Server:/server
+    working_dir: /server
+    command: npm start
+  proxy:
+    image: nginx
+    networks:
+    - network
+    volumes:
+    - D:/Andie/code/Baoleme/Nginx-configuration:/etc/nginx
+    - D:/Andie/code/Baoleme/Server/files:/files
+    ports:
+    - 443:443
+    links:
+    - api
+
+networks:
+  network:
