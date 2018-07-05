@@ -16,6 +16,7 @@ echo              update container
 echo ---------------------------------------------
 cd baoleme
 docker-compose up -d
+docker restart baoleme_proxy_1
 eeooff
 echo ---------------------------------------------
 echo                logout Server
