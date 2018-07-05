@@ -1,8 +1,7 @@
 echo ---------------------------------------------
 echo               send secret key
 echo ---------------------------------------------
-scp -i deploy_rsa 2_api.baoleme.andiedie.cn.key root@119.29.252.110:/root/baoleme/nginx/
-scp -i deploy_rsa 2_baoleme.andiedie.cn root@119.29.252.110:/root/baoleme/nginx/
+scp -i deploy_rsa 2_api.baoleme.andiedie.cn.key 2_baoleme.andiedie.cn.key root@119.29.252.110:/root/baoleme/nginx/
 echo ---------------------------------------------
 echo                login Server
 echo ---------------------------------------------
